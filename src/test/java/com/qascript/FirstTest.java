@@ -6,12 +6,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-public class FirstTest {
+import io.github.bonigarcia.wdm.WebDriverManager;
 
+public class FirstTest {
 
     @Test
     public void OpenBrowser()  {
+        
+        WebDriverManager.chromedriver().setup();
         WebDriver driver;
+        
         System.setProperty("webdriver.chrome.driver", "/snap/bin/chromium.chromedriver");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("headless");
