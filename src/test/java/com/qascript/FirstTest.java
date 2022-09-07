@@ -5,7 +5,6 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.chrome.ChromeDriverService;
 
 //import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -17,14 +16,12 @@ public class FirstTest {
         // WebDriverManager.chromedriver().setup();
         
         System.setProperty("webdriver.chrome.driver", "/snap/bin/chromium.chromedriver");
-        
-        ChromeDriverService service= ChromeDriverService.CreateDefaultService("/snap/bin/chromium.chromedriver");
-        service.Port = "9515";
-        
+                
         ChromeOptions options = new ChromeOptions();
         options.addArguments("headless");
         options.addArguments("disable-gpu");
-        WebDriver driver = new ChromeDriver(service, options);
+        options.setExperimentalOption("debuggerAddress", "127.0.0.1:9515");
+        WebDriver driver = new ChromeDriver(options);
         
         driver.get("https://www.google.com");
         System.out.println("Title of the page is: " + driver.getTitle());
