@@ -6,21 +6,24 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-//import io.github.bonigarcia.wdm.WebDriverManager;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class FirstTest {
 
     @Test
     public void OpenBrowser()  {
         
-        //WebDriverManager.chromiumdriver().setup();
+        WebDriverManager.chromiumdriver().setup();
+        System.out.println("Webdriver has been setup!");
         
-        System.setProperty("webdriver.chromium.driver", "/snap/bin/chromium.chromedriver");
+        //System.setProperty("webdriver.chromium.driver", "/snap/bin/chromium.chromedriver");
                 
         ChromeOptions options = new ChromeOptions();
         options.addArguments("headless");
         options.addArguments("disable-gpu");
         //options.setExperimentalOption("debuggerAddress", "127.0.0.1:9515");
+        
+        System.out.println("Creating webdriver with options...");
         WebDriver driver = new ChromeDriver(options);
         
         driver.get("https://www.google.com");
