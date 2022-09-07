@@ -6,21 +6,21 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-//import io.github.bonigarcia.wdm.WebDriverManager;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class FirstTest {
 
     @Test
     public void OpenBrowser()  {
         
-        // WebDriverManager.chromedriver().setup();
+        WebDriverManager.chromiumdriver().setup();
         
-        System.setProperty("webdriver.chrome.driver", "/snap/bin/chromium.chromedriver");
+        //System.setProperty("webdriver.chrome.driver", "/snap/bin/chromium.chromedriver");
                 
         ChromeOptions options = new ChromeOptions();
         options.addArguments("headless");
         options.addArguments("disable-gpu");
-        options.setExperimentalOption("debuggerAddress", "127.0.0.1:9515");
+        //options.setExperimentalOption("debuggerAddress", "127.0.0.1:9515");
         WebDriver driver = new ChromeDriver(options);
         
         driver.get("https://www.google.com");
